@@ -43,10 +43,36 @@
             <br>
 
             <label for="estado">Estado:</label>
-            <input type="text" id="estado" name="estado" required>
-            <br>
-            <label id="erroEstadoLabel" class="erro"></label>
-            <br>
+			<select id="estado" name="estado" required>
+				<option value="" disabled selected>Selecione um estado</option>
+				<option value="AC">Acre</option>
+				<option value="AL">Alagoas</option>
+				<option value="AP">Amapá</option>
+				<option value="AM">Amazonas</option>
+				<option value="BA">Bahia</option>
+				<option value="CE">Ceará</option>
+				<option value="DF">Distrito Federal</option>
+				<option value="ES">Espírito Santo</option>
+				<option value="GO">Goiás</option>
+				<option value="MA">Maranhão</option>
+				<option value="MT">Mato Grosso</option>
+				<option value="MS">Mato Grosso do Sul</option>
+				<option value="MG">Minas Gerais</option>
+				<option value="PA">Pará</option>
+				<option value="PB">Paraíba</option>
+				<option value="PR">Paraná</option>
+				<option value="PE">Pernambuco</option>
+				<option value="PI">Piauí</option>
+				<option value="RJ">Rio de Janeiro</option>
+				<option value="RN">Rio Grande do Norte</option>
+				<option value="RS">Rio Grande do Sul</option>
+				<option value="RO">Rondônia</option>
+				<option value="RR">Roraima</option>
+				<option value="SC">Santa Catarina</option>
+				<option value="SP">São Paulo</option>
+				<option value="SE">Sergipe</option>
+				<option value="TO">Tocantins</option>
+			</select><br><br>
 
             <label for="telefoneFixo">Telefone Fixo:</label>
             <input type="tel" id="telefoneFixo" name="telefoneFixo" required>
@@ -126,7 +152,6 @@
                 var bairro = document.getElementById("bairro").value;
                 var cep = document.getElementById("cep").value
                 var cidade = document.getElementById("cidade").value;
-                var estado = document.getElementById("estado").value;
                 var telFixo = document.getElementById("telefoneFixo").value;
                 var celular = document.getElementById("celular").value;
                 var rg = document.getElementById("rg").value;
@@ -139,7 +164,6 @@
                 var erroBairroLabel = document.getElementById('erroBairroLabel');
                 var erroCEPLabel = document.getElementById('erroCEPLabel');
                 var erroCidadeLabel = document.getElementById('erroCidadeLabel');
-                var erroEstadoLabel = document.getElementById('erroEstadoLabel');
                 var erroTelFixoLabel = document.getElementById('erroTelFixoLabel');
                 var erroCelularLabel = document.getElementById('erroCelularLabel');
                 var erroRGLabel = document.getElementById('erroRGLabel');
@@ -152,7 +176,6 @@
                 erroBairroLabel.textContent = '';
                 erroCEPLabel.textContent = '';
                 erroCidadeLabel.textContent = '';
-                erroEstadoLabel.textContent = '';
                 erroTelFixoLabel.textContent = '';
                 erroCelularLabel.textContent = '';
                 erroRGLabel.textContent = '';
@@ -204,7 +227,7 @@
                     erroCidadeLabel.textContent = 'Por favor, preencha este de maneira correta.'; 
                     return false;
                 }
-
+				
                 var formatoTelFixo =/^\(\d{2}\)\d{4}-\d{4}$/ ;
                 if (formatoTelFixo.test(telFixo)) {
                     console.log("Telefone Fixo válido!");
